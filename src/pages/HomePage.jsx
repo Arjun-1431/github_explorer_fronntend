@@ -161,7 +161,7 @@ const HomePage = () => {
 	};
 
 	return (
-		<div className='m-4'>
+		<div className='mx-auto my-3 w-full max-w-6xl sm:my-4'>
 			<Search
 				onSearch={onSearch}
 				query={query}
@@ -173,7 +173,7 @@ const HomePage = () => {
 				onSuggestionSelect={onSuggestionSelect}
 			/>
 			{repos.length > 0 && <SortRepos onSort={onSort} sortType={sortType} />}
-			<div className='flex gap-4 flex-col lg:flex-row justify-center items-start'>
+			<div className='flex flex-col items-stretch gap-4 lg:flex-row lg:items-start lg:justify-center'>
 				{userProfile && !loading && <ProfileInfo userProfile={userProfile} />}
 				{!loading && <Repos repos={repos} />}
 				{loading && <Spinner />}

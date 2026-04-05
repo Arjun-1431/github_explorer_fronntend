@@ -87,14 +87,14 @@ const ShowTotalStars = () => {
   };
 
   return (
-    <Card className="bg-black text-white shadow-lg rounded-lg">
+    <Card className="rounded-3xl border border-white/10 bg-slate-950/85 text-white shadow-lg backdrop-blur-md">
       <CardHeader
   floated={false}
   shadow={false}
   color="transparent"
-  className="flex flex-col md:flex-row md:items-center p-6 gap-4 justify-between"
+  className="flex flex-col gap-4 p-4 sm:p-6 md:flex-row md:items-center md:justify-between"
 >
-  <div className="flex items-center gap-4">
+  <div className="flex items-start gap-4">
     <div className="w-max rounded-lg bg-gray-800 p-4 text-yellow-400 flex-shrink-0">
       <StarIcon className="h-7 w-7" />
     </div>
@@ -115,7 +115,7 @@ const ShowTotalStars = () => {
 </CardHeader>
 
 
-      <div className="flex justify-center w-[30%] mt-1 ml-10">
+      <div className="mt-1 flex w-full justify-start px-4 sm:px-6 md:max-w-xs">
   <Select
     value={selectedYear}
     onChange={(e) => setSelectedYear(Number(e))}
@@ -130,7 +130,7 @@ const ShowTotalStars = () => {
 </div>
 
 
-      <CardBody className="px-6 pb-6">
+      <CardBody className="px-3 pb-4 sm:px-6 sm:pb-6">
         <Chart
           options={chartConfig.options}
           series={chartConfig.series}

@@ -6,12 +6,12 @@ const SortRepos = ({ onSort, sortType }) => {
 	];
 
 	return (
-		<div className='mb-2 flex justify-center lg:justify-end'>
+		<div className='mb-2 flex flex-wrap justify-center lg:justify-end'>
 			{BUTTONS.map((button) => (
 				<button
 					key={button.type}
 					type='button'
-					className={`py-2.5 px-5 me-2 mb-2 text-xs sm:text-sm font-medium focus:outline-none rounded-lg bg-glass ${
+					className={`mb-2 me-2 rounded-lg bg-glass px-4 py-2.5 text-xs font-medium focus:outline-none sm:px-5 sm:text-sm ${
 						button.type == sortType ? "border-blue-500" : ""
 					}`}
 					onClick={() => onSort(button.type)}

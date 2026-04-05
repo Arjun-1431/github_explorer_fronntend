@@ -40,12 +40,12 @@ const Search = ({
 	}, []);
 
 	return (
-		<form className='max-w-xl mx-auto p-2' onSubmit={(e) => onSearch(e, query, searchType)}>
+		<form className='mx-auto w-full max-w-3xl p-2' onSubmit={(e) => onSearch(e, query, searchType)}>
 			<label htmlFor='default-search' className='mb-2 text-sm font-medium text-gray-900 sr-only'>
 				Search
 			</label>
 
-			<div className='mb-3 flex gap-2 justify-center'>
+			<div className='mb-3 flex flex-wrap justify-center gap-2'>
 				{Object.entries(SEARCH_TYPES).map(([type, config]) => (
 					<button
 						key={type}
@@ -73,7 +73,7 @@ const Search = ({
 				<input
 					type='search'
 					id='default-search'
-					className='block w-full p-4 ps-10 text-sm rounded-lg bg-glass focus:ring-blue-500 focus:border-blue-500 bg-transparent focus:bg-transparent'
+					className='block w-full rounded-lg bg-glass p-4 pb-16 ps-10 text-sm focus:border-blue-500 focus:ring-blue-500 sm:pe-36 sm:pb-4'
 					placeholder={SEARCH_TYPES[searchType].placeholder}
 					required
 					value={query}
@@ -86,7 +86,7 @@ const Search = ({
 
 				<button
 					type='submit'
-					className='text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 bg-gradient-to-r from-cyan-900 to-blue-900 hover:scale-95 active:scale-90 transition-all duration-300'
+					className='absolute bottom-2.5 left-2.5 right-2.5 rounded-lg bg-gradient-to-r from-cyan-900 to-blue-900 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:scale-95 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:left-auto sm:right-2.5'
 				>
 					Search
 				</button>

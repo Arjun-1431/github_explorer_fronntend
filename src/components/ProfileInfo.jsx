@@ -34,9 +34,9 @@ const ProfileInfo = ({ userProfile }) => {
 	};
 
 	return (
-		<div className='lg:w-1/3 w-full flex flex-col gap-2 lg:sticky md:top-10'>
+		<div className='flex w-full flex-col gap-2 lg:sticky lg:top-10 lg:w-1/3'>
 			<div className='bg-glass rounded-lg p-4'>
-				<div className='flex gap-3 items-center'>
+				<div className='flex flex-col items-start gap-3 sm:flex-row sm:items-center'>
 					<a href={userProfile?.html_url} target='_blank' rel='noreferrer'>
 						<img
 							src={userProfile?.avatar_url}
@@ -44,13 +44,13 @@ const ProfileInfo = ({ userProfile }) => {
 							alt='User Avatar'
 						/>
 					</a>
-					<div>
+					<div className='min-w-0'>
 						<h1 className='text-lg font-bold'>{userProfile?.name || "No Name"}</h1>
-						<p className='text-sm text-gray-500'>@{userProfile?.login}</p>
+						<p className='break-all text-sm text-gray-400'>@{userProfile?.login}</p>
 					</div>
 				</div>
 
-				<p className='mt-2 text-sm text-gray-700'>{userProfile?.bio || "No bio available"}</p>
+				<p className='mt-2 text-sm text-gray-300'>{userProfile?.bio || "No bio available"}</p>
 
 				<div className='mt-4 flex flex-wrap gap-4'>
 					{userProfile?.location && (

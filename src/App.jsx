@@ -16,9 +16,9 @@ function App() {
 	if (loading) return null;
 
 	return (
-		<div className='flex'>
+		<div className='min-h-screen md:flex'>
 			<Sidebar />
-			<div className='max-w-5xl my-5 text-white mx-auto transition-all duration-300 flex-1'>
+			<div className='mx-auto w-full max-w-7xl flex-1 px-3 pb-6 pt-3 text-white transition-all duration-300 sm:px-4 md:my-5 md:px-6'>
 				<Routes>
 					<Route path='/' element={<HomePage />} />
 					<Route path='/login' element={!authUser ? <LoginPage /> : <Navigate to={"/"} />} />

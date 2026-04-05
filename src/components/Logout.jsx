@@ -8,9 +8,7 @@ const Logout = () => {
 
 	const handleLogout = async () => {
 		try {
-			const res = await fetch("/api/auth/logout", { credentials: "include" });
-			const data = await res.json();
-			console.log(data);
+			await fetch("/api/auth/logout", { credentials: "include", cache: "no-store" });
 			setAuthUser(null);
 		} catch (error) {
 			toast.error(error.message);

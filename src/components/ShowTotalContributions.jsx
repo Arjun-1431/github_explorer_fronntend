@@ -48,7 +48,7 @@ export default function ShowTotalContributions() {
   };
 
   return (
-    <Card className="bg-black text-white">
+    <Card className="rounded-3xl border border-white/10 bg-slate-950/85 text-white backdrop-blur-md">
       <CardHeader
         floated={false}
         shadow={false}
@@ -74,7 +74,7 @@ export default function ShowTotalContributions() {
           </Typography>
         </div>
       </CardHeader>
-      <CardBody className="px-2 pb-0">
+      <CardBody className="px-2 pb-2 sm:pb-4">
         <Chart type="line" height={260} {...chartConfig} />
       </CardBody>
     </Card>

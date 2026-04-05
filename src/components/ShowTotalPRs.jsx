@@ -8,7 +8,7 @@ export default function ShowTotalPRs() {
   const repositoriesPRs = analysisData?.repositoriesPRs || [];
 
   if (!repositoriesPRs || repositoriesPRs.length === 0) {
-    return <p style={{ color: 'black' }}>No pull request data available.</p>;
+    return <p className="text-center text-gray-300">No pull request data available.</p>;
   }
 
   // Find the repository with the highest PR count (best performing repository)
@@ -31,11 +31,12 @@ export default function ShowTotalPRs() {
   ];
 
   return (
-    <Box sx={{ width: '100%', maxWidth: 1000, color: 'white' }}>
-      <p style={{ color: 'black' }}>
+    <div className="rounded-3xl border border-white/10 bg-slate-950/85 p-4 text-white shadow-lg backdrop-blur-md sm:p-6">
+      <Box sx={{ width: '100%', maxWidth: 1000, color: 'white' }}>
+      <p style={{ color: 'white' }}>
         Total PRs: {analysisData?.totalPRs ?? repositoriesPRs.reduce((total, repo) => total + repo.totalPullRequests, 0)}
       </p>
-      <p style={{ color: 'black' }}>
+      <p style={{ color: 'rgb(209 213 219)', marginTop: 8, marginBottom: 16 }}>
         Best Performing Repository: {bestRepo.repository} with {bestRepo.totalPullRequests} PRs
       </p>
       <LineChart
@@ -45,11 +46,12 @@ export default function ShowTotalPRs() {
         leftAxis="linearAxis"
         height={400}
         sx={{
-          '.MuiXAxis-tick': { color: 'white' },
-          '.MuiYAxis-tick': { color: 'white' },
-          '.MuiChart-tooltip': { color: 'white' },
+          '.MuiChartsAxis-line': { stroke: 'rgba(255,255,255,0.25)' },
+          '.MuiChartsAxis-tickLabel': { fill: '#d1d5db' },
+          '.MuiChartsLegend-label': { fill: '#ffffff' },
         }}
       />
     </Box>
+    </div>
   );
 }

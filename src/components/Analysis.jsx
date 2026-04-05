@@ -83,8 +83,8 @@ const Analysis = () => {
 
 	if (loading) {
 		return (
-			<div className='rounded-lg bg-gray-200 p-6 shadow-xl'>
-				<p className='text-center text-lg font-medium text-black'>
+			<div className='rounded-3xl border border-white/10 bg-black/35 p-4 shadow-2xl backdrop-blur-md sm:p-6'>
+				<p className='text-center text-lg font-medium text-white'>
 					Loading analysis for @{username || "profile"}...
 				</p>
 			</div>
@@ -93,9 +93,9 @@ const Analysis = () => {
 
 	if (error) {
 		return (
-			<div className='rounded-lg bg-gray-200 p-6 shadow-xl text-center'>
-				<h2 className='text-2xl font-semibold text-black'>GitHub Profile Analysis</h2>
-				<p className='mt-4 text-sm text-gray-700'>{error}</p>
+			<div className='rounded-3xl border border-white/10 bg-black/35 p-4 text-center shadow-2xl backdrop-blur-md sm:p-6'>
+				<h2 className='text-2xl font-semibold text-white'>GitHub Profile Analysis</h2>
+				<p className='mt-4 text-sm text-gray-300'>{error}</p>
 				<button
 					type='button'
 					onClick={() => setRetryKey((currentValue) => currentValue + 1)}
@@ -109,8 +109,8 @@ const Analysis = () => {
 
 	if (!analysisData) {
 		return (
-			<div className='rounded-lg bg-gray-200 p-6 shadow-xl'>
-				<p className='text-center text-black'>Analysis data is not available yet.</p>
+			<div className='rounded-3xl border border-white/10 bg-black/35 p-4 shadow-2xl backdrop-blur-md sm:p-6'>
+				<p className='text-center text-white'>Analysis data is not available yet.</p>
 			</div>
 		);
 	}
@@ -140,34 +140,37 @@ const Analysis = () => {
 	};
 
 	return (
-		<div className='rounded-lg bg-gray-200 p-6 shadow-xl'>
+		<div className='rounded-3xl border border-white/10 bg-black/35 p-4 shadow-2xl backdrop-blur-md sm:p-6'>
 			<div className='mb-6 flex flex-col gap-4'>
 				<div className='text-center'>
-					<h2 className='text-2xl font-semibold text-black'>GitHub Profile Analysis</h2>
-					<p className='mt-1 text-sm text-gray-700'>
+					<h2 className='text-3xl font-semibold text-white sm:text-4xl'>GitHub Profile Analysis</h2>
+					<p className='mt-1 break-all text-sm text-gray-300 sm:text-base'>
 						@{analysisData.profile?.login || username}
 					</p>
 				</div>
 
-				<div className='grid grid-cols-2 gap-3 md:grid-cols-5'>
+				<div className='grid grid-cols-2 gap-3 xl:grid-cols-5'>
 					{stats.map((stat) => (
-						<div key={stat.label} className='rounded-lg bg-white p-3 text-center shadow-sm'>
-							<p className='text-xs uppercase tracking-wide text-gray-500'>{stat.label}</p>
-							<p className='mt-1 text-lg font-semibold text-black'>{stat.value}</p>
+						<div
+							key={stat.label}
+							className='rounded-2xl border border-white/10 bg-white/8 p-3 text-center shadow-sm backdrop-blur-sm'
+						>
+							<p className='text-xs uppercase tracking-wide text-gray-300'>{stat.label}</p>
+							<p className='mt-1 text-lg font-semibold text-white sm:text-2xl'>{stat.value}</p>
 						</div>
 					))}
 				</div>
 			</div>
 
-			<div className='grid grid-cols-2 gap-3 text-sm sm:grid-cols-3 lg:grid-cols-5'>
+			<div className='grid grid-cols-2 gap-3 text-sm xl:grid-cols-5'>
 				{ANALYSIS_TABS.map((tab) => (
 					<button
 						key={tab.id}
 						type='button'
-						className={`rounded-lg px-4 py-2 transition duration-300 focus:outline-none ${
+						className={`rounded-2xl border px-4 py-3 transition duration-300 focus:outline-none ${
 							visibleComponent === tab.id
-								? "bg-blue-700 text-white"
-								: "bg-white text-black hover:bg-gray-100"
+								? "border-blue-500 bg-blue-600 text-white"
+								: "border-white/10 bg-white/8 text-white hover:bg-white/15"
 						}`}
 						onClick={() => setVisibleComponent(tab.id)}
 					>

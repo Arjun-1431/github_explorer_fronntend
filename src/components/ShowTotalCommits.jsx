@@ -46,7 +46,7 @@ const ShowTotalCommits = () => {
   };
 
   return (
-    <Card className="bg-black text-white">
+    <Card className="rounded-3xl border border-white/10 bg-slate-950/85 text-white backdrop-blur-md">
       <CardHeader floated={false} shadow={false} color="transparent" className="flex flex-col gap-4 md:flex-row md:items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-max rounded-lg bg-gray-800 p-5 text-blue-400">
@@ -70,7 +70,7 @@ const ShowTotalCommits = () => {
           </div>
         )}
       </CardHeader>
-      <CardBody className="px-2 pb-0">
+      <CardBody className="px-2 pb-2 sm:pb-4">
         <Chart type="bar" height={240} {...chartConfig} />
       </CardBody>
     </Card>

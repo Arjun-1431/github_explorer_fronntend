@@ -39,12 +39,12 @@ const Repo = ({ repo }) => {
       >
         <FaCodeBranch className="w-5 h-5 text-blue-800" />
       </span>
-      <div className="flex gap-2 items-center flex-wrap">
+      <div className="flex flex-wrap items-center gap-2">
         <a
           href={repo.html_url}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-2 text-lg font-semibold"
+          className="break-all text-base font-semibold sm:text-lg"
         >
           {repo.name}
         </a>
@@ -76,27 +76,28 @@ const Repo = ({ repo }) => {
         Released on {formattedDate}
       </time>
 
-      <p className="mb-4 text-base font-normal text-gray-500">
+      <p className="mb-4 text-sm font-normal text-gray-400 sm:text-base">
         {repo.description
           ? repo.description.slice(0, 500)
           : "No description provided"}
       </p>
 
-      {/* Open in GitHub Codespaces Button */}
-      <button
-        onClick={() => handleOpenInVSCode(repo)}
-        className="bg-glass font-medium text-xs p-2 rounded-md cursor-pointer border border-blue-400 inline-flex items-center gap-2"
-      >
-        <FaEye size={16} />
-        Open in VS Code (Web)
-      </button>
-      {PROGRAMMING_LANGUAGES[repo.language] ? (
-        <img
-          src={PROGRAMMING_LANGUAGES[repo.language]}
-          alt="Programming language icon"
-          className="h-8"
-        />
-      ) : null}
+      <div className="flex flex-wrap items-center gap-3">
+        <button
+          onClick={() => handleOpenInVSCode(repo)}
+          className="bg-glass inline-flex cursor-pointer items-center gap-2 rounded-md border border-blue-400 p-2 text-xs font-medium"
+        >
+          <FaEye size={16} />
+          Open in VS Code (Web)
+        </button>
+        {PROGRAMMING_LANGUAGES[repo.language] ? (
+          <img
+            src={PROGRAMMING_LANGUAGES[repo.language]}
+            alt="Programming language icon"
+            className="h-8"
+          />
+        ) : null}
+      </div>
     </li>
   );
 };
